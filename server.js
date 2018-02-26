@@ -10,18 +10,16 @@ io.on('connection', function(socket) {
 	console.log('user is connected via socket.io')
     
     socket.on('message',function(message){
-        console.log('message ' + message.text);
+        console.log('message received ' + message.text);
         
-        socket.broadcast.emit('message', message)
+        socket.broadcast.emit('message', message);
     })
     
     
     
     
     socket.emit('message', {
-        text: 'welcome to the chate application'
-        
-        
+        text: 'welcome to the chate application'  
     })
 })
 
