@@ -5,9 +5,10 @@ socket.on('connect', function () {
 })
 
 socket.on('message', function(message){
+    var time = moment.utc(message.timestamp)
           console.log('message is')
         console.log(message.text)
-    jQuery('.messages').append('<p>' + message.text + '</p>');
+    jQuery('.messages').append('<p>'+'<strong>'+time.local().format('h:mm a ')+ '</strong>'+ message.text + '</p>');
       
 })
 
