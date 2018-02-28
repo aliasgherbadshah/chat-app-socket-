@@ -3,10 +3,16 @@ var room = getQueryVariable('room')
 var socket = io();
 
 
+jQuery('.roomName').append('<p>'+'<strong>'+ 'Room Name ' +'</strong>'+room+'</p>')
 console.log(name +' wants to join room '+ room);
 
 socket.on('connect', function () {
     console.log('connected to socket io server');
+})
+
+socket.emit('joinRoom', {
+    name:name, 
+    room:room
 })
 
 socket.on('message', function(message){
@@ -27,6 +33,7 @@ $form.on('submit', function(event){
     socket.emit('message', {
         text: mess.val(),
         name: name
+
     })
     mess.val('')
 })
