@@ -5,21 +5,50 @@
     <meta charset="UTF-8">
     <title>chat app</title>
 
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
 <body>
-	<a href="./index.html">Change setting</a>
-	<div class="roomName"></div>
-<!--    //messages areshoed here-->
-    <div class="messages">
-            
+
+	<div class="vartical-aling">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-6 col-md-offset-3 well">
+
+					<a href="./index.html">Log Out</a>
+					<div class="roomName text-center"></div>
+				<!--    //messages are shoed here-->
+				    <ul class="messages list-group">
+				            
+				    </ul>
+				    
+				<!--    input forn-->
+				    <form id="message">
+				    	<div class="form-group">
+					    	<div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                    </span>
+                                    <input type="text" name="message" placeholder="enter your message" class="form-control">
+	                         </div>
+                     	</div>
+				        <div class="form-group">
+				        	<input type="submit" class="btn btn-default btn-block">
+				        </div>
+				    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
-    
-<!--    input forn-->
-    <form id="message">
-        <input type="text" name="message" placeholder="enter your message">
-        <input type="submit">
-    </form>
+
+
+
+
+
+
+
     
 <script src="js/moment.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>

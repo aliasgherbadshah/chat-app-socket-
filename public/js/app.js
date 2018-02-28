@@ -17,10 +17,11 @@ socket.emit('joinRoom', {
 
 socket.on('message', function(message){
     var time = moment.utc(message.timestamp)
+    var $vm = jQuery('<li class="list-group-item"></li>')
           console.log('message is')
         console.log(message.text)
-    jQuery('.messages').append('<strong>'+'<p>'+message.name+'<strong>'+time.local().format(' h:mm a ')+ '</strong>'+ '</strong>'+'</p>'+'<p>'+ message.text + '</p>');
-      
+    $vm.append('<strong>'+'<p>'+message.name+'<strong>'+time.local().format(' h:mm a ')+ '</strong>'+ '</strong>'+'</p>'+'<p>'+ message.text + '</p>');
+    jQuery('.messages').append($vm)
 })
 
 

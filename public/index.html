@@ -5,18 +5,48 @@
     <meta charset="UTF-8">
     <title>chat app</title>
 
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
 <body>
-    <h1>Join Chat</h1>
-    <form action="./chat.html">
-        <label>Display Name</label>
-        <input type="text" name="name">
-        <label>Room name</label>
-        <input type="text" name="room">
-        <input type="submit" placeholder="join room">
+    
+    <div class="vartical-aling">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-4 col-md-offset-4 well">
+                    <h1 class="text-center">Join Chat</h1>
+                    <form action="./chat.html">
+                        <div class="form-group">
+                            <label>Display Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                    </span>
+                                    <input type="text" name="name" class="form-control">    
+                                </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label>Room name</label>
+                            <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-comment"></i>
+                                    </span>
+                                    <input type="text" name="room" class="form-control">
+                                </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" placeholder="join room" class="btn btn-primary btn-block">
+                        </div>
+                    </form>
+                </div>
+            </div>        
+        </div>
+    </div>
 
-    </form>
+    
 
 </body>
 </html>

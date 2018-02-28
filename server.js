@@ -5,7 +5,38 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var moment = require('moment');
 
+// global variabels
 var clientInfo = {};
+
+//----functions-------
+
+ function sendUserName (socket){
+	var info = clientInfo[socket.id];
+	var users = [];
+
+	if (typeof info === 'undefined') {
+		return;
+	}
+	Object.keys(clientInfo).forEach(function(socketId){
+		var userInfo = clientInfo[socketId];
+
+		if(info.room === userInfo.room){
+			users.push(userInfo.name)
+		}
+
+	});
+
+	socket.emit('message',{
+		name:'system',
+		text:'Current users: '+users.join(', '),
+		timestamp:moment.valueOf()
+	})
+}
+
+
+
+
+
 
 app.use(express.static(__dirname + '/public'));
 
@@ -39,8 +70,15 @@ io.on('connection', function(socket) {
     
     socket.on('message',function(message){
         console.log('message received ' + message.text);
-        message.timestamp = moment().valueOf()
-        io.to(clientInfo[socket.id].room).emit('message', message);
+
+        if(message.text === '@list'){
+        	sendUserName(socket);
+        }else{
+        	message.timestamp = moment().valueOf()
+        	io.to(clientInfo[socket.id].room).emit('message', message);
+        }
+
+        
     })
     
     
